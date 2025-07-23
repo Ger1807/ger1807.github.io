@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de Memoria Científica</title>
+    <!-- Carga íconos de Font Awesome para elementos visuales -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Enlace a la hoja de estilos externa -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="dark-mode">
+    <!-- Contenedor principal del juego -->
+    <div class="container">
+        <header>
+            <!-- Título del juego con ícono temático -->
+            <h1><i class="fas fa-atom"></i> Memoria Científica</h1>
+            <p class="subtitle">Encuentra los pares de elementos científicos</p>
+        </header>
+        
+        <!-- Panel de información del juego: tiempo, movimientos, puntuación -->
+        <div class="game-info">
+            <div class="info-box">
+                <div class="info-label">Tiempo</div>
+                <div class="info-value" id="time">00:00</div>
+            </div>
+            <div class="info-box">
+                <div class="info-label">Movimientos</div>
+                <div class="info-value" id="moves">0</div>
+            </div>
+            <div class="info-box">
+                <div class="info-label">Puntuación</div>
+                <div class="info-value" id="score">0</div>
+            </div>
+        </div>
+        
+        <!-- Controles del juego: reiniciar, cambiar tema, cambiar dificultad -->
+        <div class="controls">
+            <button class="btn" id="reset"><i class="fas fa-redo"></i> Reiniciar</button>
+            <button class="btn" id="theme"><i class="fas fa-moon"></i> Modo Claro</button>
+            <button class="btn" id="difficulty"><i class="fas fa-cogs"></i> Medio</button>
+        </div>
+        
+        <!-- Tablero donde se colocan las cartas del juego -->
+        <div class="board" id="board"></div>
+        
+        <!-- Elementos temáticos científicos decorativos -->
+        <div class="science-theme">
+            <div class="science-item">
+                <div class="science-icon"><i class="fas fa-atom"></i></div>
+                <div class="science-label">Átomos</div>
+            </div>
+            <div class="science-item">
+                <div class="science-icon"><i class="fas fa-flask"></i></div>
+                <div class="science-label">Química</div>
+            </div>
+            <div class="science-item">
+                <div class="science-icon"><i class="fas fa-dna"></i></div>
+                <div class="science-label">ADN</div>
+            </div>
+            <div class="science-item">
+                <div class="science-icon"><i class="fas fa-rocket"></i></div>
+                <div class="science-label">Astronomía</div>
+            </div>
+        </div>
+        
+        <!-- Pie de página con información del proyecto -->
+        <div class="footer">
+            Proyecto de Desarrollo de Entornos Web - Universidad Alonso de Ojeda
+        </div>
+    </div>
+    
+    <!-- Mensaje de victoria (oculto inicialmente) -->
+    <div class="win-message" id="winMessage">
+        <div class="win-content">
+            <h2><i class="fas fa-trophy"></i> ¡Felicidades!</h2>
+            <div class="win-stats">
+                <p>Completaste el juego en <span id="winTime">00:00</span></p>
+                <p>Movimientos: <span id="winMoves">0</span></p>
+                <p>Puntuación: <span id="winScore">0</span></p>
+            </div>
+            <button class="win-btn" id="playAgain">Jugar de Nuevo</button>
+        </div>
+    </div>
+
+    <!-- Carga el script principal del juego -->
+    <script src="game.js"></script>
+</body>
+</html>

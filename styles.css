@@ -1,0 +1,456 @@
+/* Reseteo básico de estilos para todos los elementos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Estilos base para el cuerpo en modo oscuro */
+body {
+    background-color: #121212;
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    transition: background-color 0.5s, color 0.5s;
+}
+
+/* Estilos para el cuerpo en modo claro */
+body.light-mode {
+    background-color: #f5f5f5;
+    color: #333333;
+}
+
+/* Contenedor principal del juego con efecto de vidrio */
+.container {
+    max-width: 800px;
+    width: 100%;
+    background: rgba(0, 15, 46, 0.85);
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.5s;
+}
+
+/* Estilos del contenedor en modo claro */
+body.light-mode .container {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para el encabezado del juego */
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Estilo del título principal */
+h1 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+    color: #4facfe;
+    position: relative;
+    display: inline-block;
+}
+
+/* Color del título en modo claro */
+body.light-mode h1 {
+    color: #0d47a1;
+}
+
+/* Estilo del subtítulo */
+.subtitle {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    margin-bottom: 15px;
+    transition: color 0.5s;
+}
+
+/* Color del subtítulo en modo claro */
+body.light-mode .subtitle {
+    color: #555;
+}
+
+/* Panel de información del juego */
+.game-info {
+    display: flex;
+    justify-content: space-between;
+    background: rgba(0, 30, 60, 0.7);
+    border-radius: 12px;
+    padding: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: all 0.5s;
+}
+
+/* Panel de información en modo claro */
+body.light-mode .game-info {
+    background: rgba(200, 220, 255, 0.7);
+}
+
+/* Cajas individuales dentro del panel de información */
+.info-box {
+    text-align: center;
+    padding: 8px 15px;
+    background: rgba(0, 50, 100, 0.6);
+    border-radius: 10px;
+    min-width: 100px;
+    transition: all 0.5s;
+}
+
+/* Cajas de información en modo claro */
+body.light-mode .info-box {
+    background: rgba(100, 150, 255, 0.6);
+}
+
+/* Etiquetas descriptivas en las cajas de información */
+.info-label {
+    font-size: 0.85rem;
+    opacity: 0.8;
+    margin-bottom: 5px;
+    transition: color 0.5s;
+}
+
+/* Color de etiquetas en modo claro */
+body.light-mode .info-label {
+    color: #333;
+}
+
+/* Valores numéricos en las cajas de información */
+.info-value {
+    font-size: 1.5rem;
+    font-weight: bold;
+    transition: color 0.5s;
+}
+
+/* Color específico para el contador de tiempo */
+#time {
+    color: #4facfe;
+}
+
+/* Color de tiempo en modo claro */
+body.light-mode #time {
+    color: #1a73e8;
+}
+
+/* Color específico para el contador de movimientos */
+#moves {
+    color: #00f2fe;
+}
+
+/* Color de movimientos en modo claro */
+body.light-mode #moves {
+    color: #34a853;
+}
+
+/* Color específico para el contador de puntuación */
+#score {
+    color: #ff6b6b;
+}
+
+/* Contenedor de botones de control */
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+}
+
+/* Estilos base para botones */
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 50px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilo específico para botón de reinicio */
+#reset {
+    background: linear-gradient(90deg, #ff6b6b, #ff8e8e);
+    color: white;
+}
+
+/* Estilo específico para botón de tema */
+#theme {
+    background: linear-gradient(90deg, #4facfe, #00f2fe);
+    color: white;
+}
+
+/* Botón de tema en modo claro */
+body.light-mode #theme {
+    background: linear-gradient(90deg, #1a73e8, #34a853);
+}
+
+/* Estilo específico para botón de dificultad */
+#difficulty {
+    background: linear-gradient(90deg, #42e695, #3bb2b8);
+    color: white;
+}
+
+/* Efecto hover para botones */
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Efecto al presionar botones */
+.btn:active {
+    transform: translateY(1px);
+}
+
+/* Tablero de juego con cartas */
+.board {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    perspective: 1000px;
+    justify-items: center;
+}
+
+/* Responsive: tablet - 3 columnas */
+@media (max-width: 768px) {
+    .board {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Responsive: móvil - 2 columnas */
+@media (max-width: 480px) {
+    .board {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Estilo base para las cartas */
+.card {
+    width: 130px;
+    height: 130px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+/* Efecto de volteo de carta */
+.card.flipped {
+    transform: rotateY(180deg);
+}
+
+/* Estilos comunes para frente y dorso de carta */
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+/* Frente de carta (lado con imagen) */
+.card-front {
+    background: linear-gradient(135deg, #2c3e50, #4a6491);
+    transform: rotateY(180deg);
+}
+
+/* Imagen dentro de la carta */
+.card-front img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 6px;
+}
+
+/* Dorso de carta (lado con interrogación) */
+.card-back {
+    background: linear-gradient(135deg, #3498db, #1a5f9e);
+    color: white;
+}
+
+/* Dorso en modo claro */
+body.light-mode .card-back {
+    background: linear-gradient(135deg, #1a73e8, #34a853);
+}
+
+/* Interrogación en el dorso de la carta */
+.card-back::after {
+    content: "?";
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.2);
+}
+
+/* Animación para cartas emparejadas */
+.matched .card-front {
+    background: linear-gradient(135deg, #2ecc71, #27ae60);
+    animation: pulse 1s infinite alternate;
+}
+
+/* Animación de pulso para cartas emparejadas */
+@keyframes pulse {
+    from { box-shadow: 0 0 5px rgba(46, 204, 113, 0.5); }
+    to { box-shadow: 0 0 15px rgba(46, 204, 113, 0.8); }
+}
+
+/* Sección temática científica */
+.science-theme {
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+/* Elementos individuales temáticos */
+.science-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 8px 12px;
+    border-radius: 8px;
+    min-width: 80px;
+    transition: all 0.5s;
+}
+
+/* Elementos temáticos en modo claro */
+body.light-mode .science-item {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+/* Íconos en elementos temáticos */
+.science-icon {
+    font-size: 1.5rem;
+    margin-bottom: 6px;
+}
+
+/* Texto en elementos temáticos */
+.science-label {
+    font-size: 0.8rem;
+    text-align: center;
+    transition: color 0.5s;
+}
+
+/* Texto en modo claro */
+body.light-mode .science-label {
+    color: #333;
+}
+
+/* Mensaje de victoria (superposición) */
+.win-message {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 100;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s;
+}
+
+/* Mostrar mensaje de victoria */
+.win-message.show {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* Contenido del mensaje de victoria */
+.win-content {
+    background: linear-gradient(135deg, #1a2a6c, #b21f1f);
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    max-width: 450px;
+    width: 90%;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+}
+
+/* Mensaje de victoria en modo claro */
+body.light-mode .win-content {
+    background: linear-gradient(135deg, #1a73e8, #34a853);
+}
+
+/* Título en mensaje de victoria */
+.win-content h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+/* Estadísticas en mensaje de victoria */
+.win-stats {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+/* Botón en mensaje de victoria */
+.win-btn {
+    padding: 10px 25px;
+    background: linear-gradient(90deg, #4facfe, #00f2fe);
+    border: none;
+    border-radius: 50px;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+/* Botón en modo claro */
+body.light-mode .win-btn {
+    background: linear-gradient(90deg, #1a73e8, #34a853);
+}
+
+/* Efecto hover para botón */
+.win-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 12px rgba(79, 172, 254, 0.7);
+}
+
+/* Pie de página */
+.footer {
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.8rem;
+    opacity: 0.7;
+    transition: all 0.5s;
+}
+
+/* Pie de página en modo claro */
+body.light-mode .footer {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    color: #333;
+}
